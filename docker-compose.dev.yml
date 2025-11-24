@@ -39,7 +39,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - pg-data:/var/lib/postgresql/data
+      - db-data:/var/lib/postgresql/data
       - ./db-init:/docker-entrypoint-initdb.d
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U user"]
@@ -105,11 +105,28 @@ services:
     networks:
       - dev-network
 
+  account-service:
+    build:
+      context: ./services/account-service
+      dockerfile: Dockerfile.dev
+    profiles: [account]
+    ports:
+      - "5001:5001"
+    depends_on:
+      main-gateway-api:
+        condition: service_started
+        restart: true
+      db:
+        condition: service_started
+        restart: true
+    networks:
+      - dev-network
+
   shop-service:
     build:
       context: ./services/shop-service
       dockerfile: Dockerfile.dev
-    profiles: [shop]
+    profiles: [ shop ]
     ports:
       - "5002:5002"
     depends_on:
@@ -124,20 +141,22 @@ services:
     networks:
       - dev-network
 
-  user-service:
+  image-service:
     build:
-      context: ./services/user-service
+      context: ./services/nano/image-service
       dockerfile: Dockerfile.dev
-    profiles: [user]
+    profiles: [ image ]
     ports:
-      - "5001:5001"
+      - "5004:5004"
     depends_on:
       main-gateway-api:
         condition: service_started
         restart: true
-      db:
-        condition: service_started
+      minio:
+        condition: service_healthy
         restart: true
+      config-server:
+        condition: service_healthy
     networks:
       - dev-network
 
@@ -146,6 +165,6 @@ networks:
     driver: bridge
 
 volumes:
-  pg-data:
+  db-data:
   minio-data:
   es-data:
