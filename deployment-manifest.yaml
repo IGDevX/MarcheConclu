@@ -4,3 +4,4 @@ services:
   marche-conclu-main-gateway-api: "ghcr.io/igdevx/marche-conclu-main-gateway-api:v1.0.0"
   marche-conclu-notification-service: "ghcr.io/igdevx/marche-conclu-notification-service:v1.0.0"
   marche-conclu-image-service: "ghcr.io/igdevx/marche-conclu-image-service:v0.0.2"
+  marche-conclu-account-service: "ghcr.io/igdevx/marche-conclu-account-service:v0.0.1"
