@@ -36,3 +36,4 @@ node_modules/
 # Others
 *.bak
 *.tmp
+.jwt
