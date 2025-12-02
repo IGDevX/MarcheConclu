@@ -5,6 +5,6 @@ services:
   marche-conclu-notification-service: "ghcr.io/igdevx/marche-conclu-notification-service:v1.0.0"
   marche-conclu-image-service: "ghcr.io/igdevx/marche-conclu-image-service:v0.0.2"
   marche-conclu-account-service: "ghcr.io/igdevx/marche-conclu-account-service:v0.0.1"
-  marche-conclu-shop-service: "ghcr.io/igdevx/marche-conclu-shop-service:v0.0.2"
+  marche-conclu-shop-service: "ghcr.io/igdevx/marche-conclu-shop-service:v0.0.3"
   marche-conclu-order-service: "ghcr.io/igdevx/marche-conclu-order-service:v0.0.1"
   marche-conclu-payment-service: "ghcr.io/igdevx/marche-conclu-payment-service:v0.0.1"
