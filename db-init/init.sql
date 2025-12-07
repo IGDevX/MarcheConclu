@@ -4,3 +4,4 @@ CREATE DATABASE notification_service;
 CREATE DATABASE order_service;
 CREATE DATABASE payment_service;
 CREATE DATABASE keycloak;
+CREATE DATABASE image_service;
